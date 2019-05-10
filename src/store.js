@@ -1,10 +1,11 @@
 import {createStore, combineReducers} from "redux";
 import freezerReducer from "./ducks/freezer";
+import { devToolsEnhancer } from "redux-devtools-extension";
 
-const fakeReducer = (prevState, action) => ({mockInfo:'some information'})
+//const fakeReducer = (prevState, action) => ({mockInfo:'some information'})
 
 const rootReducer = combineReducers({
     freeze: freezerReducer,
-    partialState: fakeReducer
+    //partialState: fakeReducer
 })
-export default createStore(rootReducer);
+export default createStore(rootReducer,devToolsEnhancer());
