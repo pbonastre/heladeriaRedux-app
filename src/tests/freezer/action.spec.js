@@ -15,20 +15,6 @@ describe('updateTemperature', () =>{
     
 });
 
-describe('freezerReducer', () => {
-    it('should store the temperature in the state', () => {
-        const newState = reducer(undefined, actions.updateTemperature(-6));
-        expect(newState.temperature).toEqual(-6);
-    });
-
-    it('should store the icecream in the state', () => {
-        const newState = reducer(undefined, actions.addIcecream(flavors.FABADA, 33));
-        expect(newState.iceCreams[flavors.FABADA]).toEqual(33);
-    });
-    
-})
-
-
 describe ('addIcecream', () => {
     it('should contain the right action type', () => {
         const action = actions.addIcecream();

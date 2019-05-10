@@ -3,6 +3,8 @@ export const actionTypes={
     ADD_ICECREAM: 'ADD_ICECREAM',
 }
 
+const MAX_AMOUNT_PER_ICECREAM = 100;
+
 const DEFAULT_STATE = {
     temperature:0,
     iceCreams:{},
@@ -35,9 +37,14 @@ export default function reducer(state=DEFAULT_STATE, action={}){
                 temperature : action.payload,
             }
         case actionTypes.ADD_ICECREAM:
+        const newAmount = action.payload.amount + (state.iceCreams[action.payload.flavor] || 0)
             return {
                 ...state,
-                iceCreams: state.iceCreams[action.payload.flavor]= action.payload.amount,
+                iceCreams: {
+                    ...state.iceCreams,
+                    [action.payload.flavor]: Math.min(newAmount, MAX_AMOUNT_PER_ICECREAM),
+
+                }
             }
         default:  
             return state;
