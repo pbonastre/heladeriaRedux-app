@@ -1,10 +1,11 @@
 import store from "./store";
 import * as flavors from "./constants/icecreams_flavors";
-import  {actions } from "./ducks/freezer";
+import  {actions as actionsFreezer} from "./ducks/freezer";
 import React from "react";
 import ReactDOM from 'react-dom';
 import App from "./components/App/App";
 
+setInterval  ( () => store.dispatch(actionsFreezer.addIcecream(flavors.FABADA, 5)), 1500)
 ReactDOM.render(<App />, document.getElementById('root'));
 
 //console.log(store.log);

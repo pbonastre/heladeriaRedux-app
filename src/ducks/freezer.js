@@ -1,3 +1,5 @@
+import * as FLAVORS from "../constants/icecreams_flavors";
+
 export const actionTypes={
     UPDATE_TEMPERATURE: 'UPDATE_TEMPERATURE',
     ADD_ICECREAM: 'ADD_ICECREAM',
@@ -6,10 +8,12 @@ export const actionTypes={
 const MAX_AMOUNT_PER_ICECREAM = 100;
 
 const DEFAULT_STATE = {
-    temperature:0,
-    iceCreams:{},
+    temperature:null,
+    iceCreams: {
+        [FLAVORS.CHOCOLATE]:10, 
+        [FLAVORS.VANILLA]:20,
+    },
 }
-
 
 //ACTIONS
 export const actions = {
